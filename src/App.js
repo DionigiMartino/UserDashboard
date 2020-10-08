@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import firebase from './Firebase'
 import './App.css'
 
-// Dashboard
+// Import Login
 
-import Dashboard from './components/Dashboard/Dashboard'
+import Login from './components/Login/Login'
 
 class App extends Component {
   constructor(props){
@@ -38,7 +38,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <Dashboard />
+          <Login />
         </header>
       </div>
     );
