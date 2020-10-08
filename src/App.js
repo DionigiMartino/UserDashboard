@@ -1,26 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'; 
+import firebase from './Firebase'
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// Dashboard
+
+import Dashboard from './components/Dashboard/Dashboard'
+
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      users: []
+    }
+  }
+
+  componentDidMount(){
+    // I get the reference to the users name
+    const userRef = firebase.database().ref('Users');
+    userRef.on('value', (snapshot) => {
+      let users = snapshot.val();
+      let newState = [];
+      for (let user in users) {
+        newState.push({
+          id: user,
+          userName: users[user].Username,
+          password: users[user].Password
+        });
+
+      }
+      this.setState({
+        users: newState
+      })
+    })
+  }
+
+  render(){
+    return (
+      <div className="App">
+        <header className="App-header">
+          <Dashboard />
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
