@@ -1,0 +1,126 @@
+$base_color: #282c34;
+
+.cont__login {
+    width: 30vw;
+    height: 35vh;
+    margin: auto auto;
+    background-color: #fff;
+    border-radius: 25px;
+    box-shadow: 0px 5px 8px #312b2b, 3px 5px 5px rgba($color: #4b4b4b, $alpha: .5) inset;
+    transform: scale(0);
+    animation: open_login;
+    animation-duration: .7s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &_icon {
+        transform: scale(0);
+        animation: open_login;
+        animation-duration: .8s;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        opacity: 0;
+    }
+
+    &_form {
+        width: 40%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        
+        &_input {
+            margin-top: 2.5vh;
+            padding: 10px 15px;
+            border: none;
+            background-color: none;
+            border-bottom: 2px solid $base_color;
+            transform: translateX(-100%);
+            opacity: 0;
+            animation: open_input 1s linear .6s forwards;
+            font-weight: 500;
+            cursor: pointer;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        &_button {
+            background-color: $base_color;
+            border: none;
+            border-radius: 5px;
+            width: 50%;
+            color: #fff;
+            padding: 10px 15px;
+            margin-top: 2.5vh;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-weight: 500;
+            transition: transform .8s;
+            animation: open_input 1s linear .6s forwards;
+            opacity: 0;
+
+            &:focus {
+                outline: none;
+                transform: translateY(.8px);
+            }
+        }
+    }
+}
+
+@keyframes open_input {
+    0% {
+        transform: translateX(-66%);
+        opacity: .33;
+    }
+
+    50% {
+        transform: translateX(-33%);
+        opacity: .66;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes open_login{
+    0%{
+        transform: scale(0.33);
+        opacity: 0.33;
+    }
+
+    50% {
+        transform: scale(0.66);
+        opacity: 0.66;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.disabled {
+    transition: opacity .8s;
+    cursor: initial;
+    opacity: .6 !important;
+}
+
+.Red {
+    border-color: red;
+}
+
+.Green {
+    border-color: green;
+}
+
+::placeholder {
+    color: $base_color;
+    font-weight: 500;
+}

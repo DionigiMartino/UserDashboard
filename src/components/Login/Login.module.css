@@ -1,0 +1,114 @@
+.cont__login {
+  width: 30vw;
+  height: 35vh;
+  margin: auto auto;
+  background-color: #fff;
+  border-radius: 25px;
+  box-shadow: 0px 5px 8px #312b2b, 3px 5px 5px rgba(75, 75, 75, 0.5) inset;
+  transform: scale(0);
+  animation: open_login;
+  animation-duration: 0.7s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cont__login_icon {
+  transform: scale(0);
+  animation: open_login;
+  animation-duration: 0.8s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+.cont__login_form {
+  width: 40%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+.cont__login_form_input {
+  margin-top: 2.5vh;
+  padding: 10px 15px;
+  border: none;
+  background-color: none;
+  border-bottom: 2px solid #282c34;
+  transform: translateX(-100%);
+  opacity: 0;
+  animation: open_input 1s linear 0.6s forwards;
+  font-weight: 500;
+  cursor: pointer;
+}
+.cont__login_form_input:focus {
+  outline: none;
+}
+.cont__login_form_button {
+  background-color: #282c34;
+  border: none;
+  border-radius: 5px;
+  width: 50%;
+  color: #fff;
+  padding: 10px 15px;
+  margin-top: 2.5vh;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 500;
+  transition: transform 0.8s;
+  animation: open_input 1s linear 0.6s forwards;
+  opacity: 0;
+}
+.cont__login_form_button:focus {
+  outline: none;
+  transform: translateY(0.8px);
+}
+
+@keyframes open_input {
+  0% {
+    transform: translateX(-66%);
+    opacity: 0.33;
+  }
+  50% {
+    transform: translateX(-33%);
+    opacity: 0.66;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes open_login {
+  0% {
+    transform: scale(0.33);
+    opacity: 0.33;
+  }
+  50% {
+    transform: scale(0.66);
+    opacity: 0.66;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.disabled {
+  transition: opacity 0.8s;
+  cursor: initial;
+  opacity: 0.6 !important;
+}
+
+.Red {
+  border-color: red;
+}
+
+.Green {
+  border-color: green;
+}
+
+::placeholder {
+  color: #282c34;
+  font-weight: 500;
+}
+
+/*# sourceMappingURL=Login.module.css.map */
