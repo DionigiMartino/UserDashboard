@@ -31,13 +31,21 @@ class Login extends Component {
             this.setState({
                 userNameInput: this.inputUsername.value
             })
+        } else {
+            this.setState({
+                userNameInput: ''
+            })
         }
         
         if(this.inputPassword.value.length > 1){
             this.setState({
                 passwordInput: this.inputPassword.value
             })
-        }   
+        } else {
+            this.setState({
+                passwordInput: ''
+            })
+        }
     }
 
     render(){

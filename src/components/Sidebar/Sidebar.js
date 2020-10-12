@@ -1,11 +1,15 @@
 import React from 'react';
-import {Route} from 'react-router-dom'
+import Login from '../Login/Login'
+import Dashboard from '../Dashboard/Dashboard'
+import {Switch, Route} from 'react-router-dom'
 
 const Sidebar = () => {
     return(
         <nav>
-            <Route path="/prova" render={() => {return <h1>Prova1</h1>}} /> 
-            <Route path="/prova2" render={() => {return <h1>Prova2</h1>}} /> 
+        <Switch>
+            <Route path="/" component={Login} />
+            <Route path="/dashboard" component={Dashboard} />
+        </Switch>
         </nav>
     )
 }

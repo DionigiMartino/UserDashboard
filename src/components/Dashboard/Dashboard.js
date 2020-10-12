@@ -2,9 +2,20 @@ import React, { Component } from 'react'
 import DashboardStyle from './Dashboard.module.css'
 
 class Dashboard extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            userName: '',
+            userJob: '',
+            userPhoto: '',
+            userJobsList: []
+        }
+    }
     render(){
         return(
-            <h1>Funziona</h1>
+            <div className={DashboardStyle.cont__dashboard}>
+                
+            </div>
         )
     }
 }

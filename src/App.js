@@ -1,10 +1,15 @@
-import React, { Component } from 'react'; 
+import React, { Component } from 'react';
 import firebase from './Firebase'
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import './App.css'
 
 // Import Login
 
 import Login from './components/Login/Login'
+
+// Import Dashboard 
+
+import Dashboard from './components/Dashboard/Dashboard'
 
 class App extends Component {
   constructor(props){
@@ -38,7 +43,12 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <Login />
+          <BrowserRouter>
+            <Switch>
+                <Route path="/" exact component={Login} />
+                <Route path="/dashboard" component={Dashboard} />
+            </Switch>
+          </BrowserRouter>
         </header>
       </div>
     );
