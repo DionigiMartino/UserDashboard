@@ -54,7 +54,33 @@
                 font-weight: 400;
             }
         }
+    }
 
+    &_jobList {
+        width: 100%;
+        height: auto;
+        padding-top: 5px;
+
+        & h2 {
+            color: #333;
+            font-size: 18px;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        &_list {
+            list-style: none;
+            padding-inline-start: 0;
+            text-align: left;
+            
+            & li {
+                color: #333;
+                font-size: 15px;
+                margin-top: 2.5vh;
+                padding-bottom: 10px;
+                border-bottom: .6px solid #dedede;
+            }
+        }
     }
 }
 

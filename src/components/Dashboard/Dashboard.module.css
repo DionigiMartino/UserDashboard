@@ -52,6 +52,29 @@
   text-align: left;
   font-weight: 400;
 }
+.cont__dashboard_jobList {
+  width: 100%;
+  height: auto;
+  padding-top: 5px;
+}
+.cont__dashboard_jobList h2 {
+  color: #333;
+  font-size: 18px;
+  text-align: left;
+  font-weight: 500;
+}
+.cont__dashboard_jobList_list {
+  list-style: none;
+  padding-inline-start: 0;
+  text-align: left;
+}
+.cont__dashboard_jobList_list li {
+  color: #333;
+  font-size: 15px;
+  margin-top: 2.5vh;
+  padding-bottom: 10px;
+  border-bottom: 0.6px solid #dedede;
+}
 
 @keyframes appearDash {
   0% {

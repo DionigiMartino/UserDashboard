@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
 import firebase from './Firebase'
+import {firebaseAuth} from './provider/AuthProvider'
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import './App.css'
 
@@ -11,48 +12,23 @@ import Login from './components/Login/Login'
 
 import Dashboard from './components/Dashboard/Dashboard'
 
-class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      users: []
-    }
-  }
+const App = () => {
+  const {test} = useContext(firebaseAuth)
+  console.log(test)
 
-  componentDidMount(){
-    // I get the reference to the users name
-    const userRef = firebase.database().ref('Users');
-    userRef.on('value', (snapshot) => {
-      let users = snapshot.val();
-      let newState = [];
-      for (let user in users) {
-        newState.push({
-          id: user,
-          userName: users[user].Username,
-          password: users[user].Password
-        });
-
-      }
-      this.setState({
-        users: newState
-      })
-    })
-  }
-
-  render(){
-    return (
-      <div className="App">
-        <header className="App-header">
-          <BrowserRouter>
+  return (
+    <div className="App">
+      <header className="App-header">
+        <BrowserRouter>
             <Switch>
-                <Route path="/" exact component={Login} />
-                <Route path="/dashboard" component={Dashboard} />
+              <Route path="/" exact component={Login} />
+              <Route path="/dashboard" component={Dashboard} />
             </Switch>
-          </BrowserRouter>
-        </header>
-      </div>
-    );
-  }
+        </BrowserRouter>
+      </header>
+    </div>
+  );
 }
+
 
 export default App;
